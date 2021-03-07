@@ -1,0 +1,11 @@
+id;title;description;due_date;date;status;type;priority
+1;out-of-the-box Adaptive users;Quetzal Reactive HTTP;2021-03-07;2021-03-07T11:14:20;OPEN;BUG;NORMAL
+2;quantifying Checking Account;killer;2021-03-07;2021-03-07T00:22:08;CANNOT_REPRODUCE;FEATURE;LOWER
+3;Applications;Savings Account Toys;2021-03-07;2021-03-07T11:17:16;DUPLICATE;BUG;LOWERST
+4;Fantastic;Crest quantify;2021-03-06;2021-03-07T14:03:16;CANNOT_REPRODUCE;BUG;HIGH
+5;communities Handcrafted Steel Chair Unbranded Frozen Chair;Colombian Peso Unidad de Valor Real Bike Views;2021-03-06;2021-03-07T02:02:05;DUPLICATE;FEATURE;HIGHEST
+6;Investor schemas;Customer Checking Account Fully-configurable;2021-03-07;2021-03-06T14:49:51;WAITING_FOR_RESPONSE;BUG;LOWERST
+7;transmit;asynchronous bluetooth Refined;2021-03-07;2021-03-06T14:14:53;CANNOT_REPRODUCE;BUG;HIGHEST
+8;calculating;Plastic;2021-03-06;2021-03-06T20:51:15;CLOSED;BUG;HIGHER
+9;Berkshire;neural multi-byte;2021-03-07;2021-03-07T12:43:19;IN_PROGRESS;FEATURE;LOWERST
+10;extensible Fresh;Hat;2021-03-07;2021-03-06T22:19:13;CANNOT_REPRODUCE;BUG;LOWER

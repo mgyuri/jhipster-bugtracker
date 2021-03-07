@@ -1,0 +1,22 @@
+{
+  "bugTrackerApp": {
+    "project": {
+      "home": {
+        "title": "Projects",
+        "createLabel": "Egy új Project létrehozása",
+        "createOrEditLabel": "Hozzon létre, vagy módosítson Projectt",
+        "notFound": "No Projects found"
+      },
+      "created": "Egy új Project lett létrehozva {{ param }} azonosítóval",
+      "updated": "A Project módosítva lett {{ param }} azonosítóval",
+      "deleted": "A Project törölve lett {{ param }} azonosítóval",
+      "delete": {
+        "question": "Biztos benne, hogy törölni szeretné az Projectt {{ id }} azonosítóval?"
+      },
+      "detail": {
+        "title": "Project"
+      },
+      "name": "Name"
+    }
+  }
+}

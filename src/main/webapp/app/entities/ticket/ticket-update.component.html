@@ -1,0 +1,129 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-ticket-heading" jhiTranslate="bugTrackerApp.ticket.home.createOrEditLabel">Create or edit a Ticket</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="bugTrackerApp.ticket.title" for="field_title">Title</label>
+                    <input type="text" class="form-control" name="title" id="field_title"
+                           formControlName="title"/>
+                    <div *ngIf="editForm.get('title')!.invalid && (editForm.get('title')!.dirty || editForm.get('title')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('title')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="bugTrackerApp.ticket.description" for="field_description">Description</label>
+                    <input type="text" class="form-control" name="description" id="field_description"
+                           formControlName="description"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="bugTrackerApp.ticket.dueDate" for="field_dueDate">Due Date</label>
+                    <div class="input-group">
+                        <input id="field_dueDate" type="text" class="form-control" name="dueDate" ngbDatepicker #dueDateDp="ngbDatepicker" formControlName="dueDate"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dueDateDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="bugTrackerApp.ticket.date" for="field_date">Date</label>
+                    <div class="d-flex">
+                        <input id="field_date" type="datetime-local" class="form-control" name="date" formControlName="date" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="bugTrackerApp.ticket.status" for="field_status">Status</label>
+                    <select class="form-control" name="status" formControlName="status" id="field_status">
+                        <option value="OPEN">{{ 'bugTrackerApp.Status.OPEN' | translate }}</option>
+                        <option value="WAITING_FOR_RESPONSE">{{ 'bugTrackerApp.Status.WAITING_FOR_RESPONSE' | translate }}</option>
+                        <option value="CLOSED">{{ 'bugTrackerApp.Status.CLOSED' | translate }}</option>
+                        <option value="DUPLICATE">{{ 'bugTrackerApp.Status.DUPLICATE' | translate }}</option>
+                        <option value="IN_PROGRESS">{{ 'bugTrackerApp.Status.IN_PROGRESS' | translate }}</option>
+                        <option value="REOPENED">{{ 'bugTrackerApp.Status.REOPENED' | translate }}</option>
+                        <option value="CANNOT_REPRODUCE">{{ 'bugTrackerApp.Status.CANNOT_REPRODUCE' | translate }}</option>
+                        <option value="SOLVED">{{ 'bugTrackerApp.Status.SOLVED' | translate }}</option>
+                        <option value="WONT_IMPLEMENT">{{ 'bugTrackerApp.Status.WONT_IMPLEMENT' | translate }}</option>
+                        <option value="VERIFIED">{{ 'bugTrackerApp.Status.VERIFIED' | translate }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="bugTrackerApp.ticket.type" for="field_type">Type</label>
+                    <select class="form-control" name="type" formControlName="type" id="field_type">
+                        <option value="BUG">{{ 'bugTrackerApp.Type.BUG' | translate }}</option>
+                        <option value="FEATURE">{{ 'bugTrackerApp.Type.FEATURE' | translate }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="bugTrackerApp.ticket.priority" for="field_priority">Priority</label>
+                    <select class="form-control" name="priority" formControlName="priority" id="field_priority">
+                        <option value="HIGHEST">{{ 'bugTrackerApp.Priority.HIGHEST' | translate }}</option>
+                        <option value="HIGHER">{{ 'bugTrackerApp.Priority.HIGHER' | translate }}</option>
+                        <option value="HIGH">{{ 'bugTrackerApp.Priority.HIGH' | translate }}</option>
+                        <option value="NORMAL">{{ 'bugTrackerApp.Priority.NORMAL' | translate }}</option>
+                        <option value="LOW">{{ 'bugTrackerApp.Priority.LOW' | translate }}</option>
+                        <option value="LOWER">{{ 'bugTrackerApp.Priority.LOWER' | translate }}</option>
+                        <option value="LOWERST">{{ 'bugTrackerApp.Priority.LOWERST' | translate }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="bugTrackerApp.ticket.project" for="field_project">Project</label>
+                    <select class="form-control" id="field_project" name="project" formControlName="project">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="projectOption.id === editForm.get('project')!.value?.id ? editForm.get('project')!.value : projectOption" *ngFor="let projectOption of projects; trackBy: trackById">{{ projectOption.name }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="bugTrackerApp.ticket.assignedTo" for="field_assignedTo">Assigned To</label>
+                    <select class="form-control" id="field_assignedTo" name="assignedTo" formControlName="assignedTo">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="userOption.id === editForm.get('assignedTo')!.value?.id ? editForm.get('assignedTo')!.value : userOption" *ngFor="let userOption of users; trackBy: trackById">{{ userOption.login }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="bugTrackerApp.ticket.reportedBy" for="field_reportedBy">Reported By</label>
+                    <select class="form-control" id="field_reportedBy" name="reportedBy" formControlName="reportedBy">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="userOption.id === editForm.get('reportedBy')!.value?.id ? editForm.get('reportedBy')!.value : userOption" *ngFor="let userOption of users; trackBy: trackById">{{ userOption.login }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label jhiTranslate="bugTrackerApp.ticket.label" for="field_labels">Label</label>
+                    <select class="form-control" id="field_labels" multiple name="labels" formControlName="labels">
+                        <option [ngValue]="getSelected(editForm.get('labels')!.value, labelOption)" *ngFor="let labelOption of labels; trackBy: trackById">{{ labelOption.label }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
