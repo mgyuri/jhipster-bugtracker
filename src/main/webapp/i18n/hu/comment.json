@@ -1,0 +1,26 @@
+{
+  "bugTrackerApp": {
+    "comment": {
+      "home": {
+        "title": "Comments",
+        "createLabel": "Egy új Comment létrehozása",
+        "createOrEditLabel": "Hozzon létre, vagy módosítson Commentt",
+        "notFound": "No Comments found"
+      },
+      "created": "Egy új Comment lett létrehozva {{ param }} azonosítóval",
+      "updated": "A Comment módosítva lett {{ param }} azonosítóval",
+      "deleted": "A Comment törölve lett {{ param }} azonosítóval",
+      "delete": {
+        "question": "Biztos benne, hogy törölni szeretné az Commentt {{ id }} azonosítóval?"
+      },
+      "detail": {
+        "title": "Comment"
+      },
+      "date": "Date",
+      "text": "Text",
+      "parent": "Parent",
+      "login": "Login",
+      "child": "Child"
+    }
+  }
+}

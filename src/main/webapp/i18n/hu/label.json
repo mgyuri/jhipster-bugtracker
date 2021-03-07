@@ -1,0 +1,23 @@
+{
+  "bugTrackerApp": {
+    "label": {
+      "home": {
+        "title": "Labels",
+        "createLabel": "Egy új Label létrehozása",
+        "createOrEditLabel": "Hozzon létre, vagy módosítson Labelt",
+        "notFound": "No Labels found"
+      },
+      "created": "Egy új Label lett létrehozva {{ param }} azonosítóval",
+      "updated": "A Label módosítva lett {{ param }} azonosítóval",
+      "deleted": "A Label törölve lett {{ param }} azonosítóval",
+      "delete": {
+        "question": "Biztos benne, hogy törölni szeretné az Labelt {{ id }} azonosítóval?"
+      },
+      "detail": {
+        "title": "Label"
+      },
+      "label": "Label",
+      "ticket": "Ticket"
+    }
+  }
+}

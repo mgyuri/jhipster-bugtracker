@@ -1,0 +1,33 @@
+{
+  "bugTrackerApp": {
+    "ticket": {
+      "home": {
+        "title": "Tickets",
+        "createLabel": "Egy új Ticket létrehozása",
+        "createOrEditLabel": "Hozzon létre, vagy módosítson Tickett",
+        "notFound": "No Tickets found"
+      },
+      "created": "Egy új Ticket lett létrehozva {{ param }} azonosítóval",
+      "updated": "A Ticket módosítva lett {{ param }} azonosítóval",
+      "deleted": "A Ticket törölve lett {{ param }} azonosítóval",
+      "delete": {
+        "question": "Biztos benne, hogy törölni szeretné az Tickett {{ id }} azonosítóval?"
+      },
+      "detail": {
+        "title": "Ticket"
+      },
+      "title": "Title",
+      "description": "Description",
+      "dueDate": "Due Date",
+      "date": "Date",
+      "status": "Status",
+      "type": "Type",
+      "priority": "Priority",
+      "attachment": "Attachment",
+      "project": "Project",
+      "assignedTo": "Assigned To",
+      "reportedBy": "Reported By",
+      "label": "Label"
+    }
+  }
+}

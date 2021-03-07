@@ -1,0 +1,24 @@
+{
+  "bugTrackerApp": {
+    "attachment": {
+      "home": {
+        "title": "Attachments",
+        "createLabel": "Egy új Attachment létrehozása",
+        "createOrEditLabel": "Hozzon létre, vagy módosítson Attachmentt",
+        "notFound": "No Attachments found"
+      },
+      "created": "Egy új Attachment lett létrehozva {{ param }} azonosítóval",
+      "updated": "A Attachment módosítva lett {{ param }} azonosítóval",
+      "deleted": "A Attachment törölve lett {{ param }} azonosítóval",
+      "delete": {
+        "question": "Biztos benne, hogy törölni szeretné az Attachmentt {{ id }} azonosítóval?"
+      },
+      "detail": {
+        "title": "Attachment"
+      },
+      "name": "Name",
+      "file": "File",
+      "ticket": "Ticket"
+    }
+  }
+}
