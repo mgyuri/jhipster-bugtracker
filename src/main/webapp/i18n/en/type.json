@@ -1,0 +1,9 @@
+{
+  "bugTrackerApp": {
+    "Type": {
+      "null": "",
+      "BUG": "Bug",
+      "FEATURE": "Feature"
+    }
+  }
+}

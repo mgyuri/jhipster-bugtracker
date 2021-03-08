@@ -1,0 +1,74 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="ticket">
+            <h2><span jhiTranslate="bugTrackerApp.ticket.detail.title">Ticket</span> {{ ticket.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="bugTrackerApp.ticket.title">Title</span></dt>
+                <dd>
+                    <span>{{ ticket.title }}</span>
+                </dd>
+                <dt><span jhiTranslate="bugTrackerApp.ticket.description">Description</span></dt>
+                <dd>
+                    <span>{{ ticket.description }}</span>
+                </dd>
+                <dt><span jhiTranslate="bugTrackerApp.ticket.dueDate">Due Date</span></dt>
+                <dd>
+                    <span>{{ ticket.dueDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="bugTrackerApp.ticket.date">Date</span></dt>
+                <dd>
+                    <span>{{ ticket.date }}</span>
+                </dd>
+                <dt><span jhiTranslate="bugTrackerApp.ticket.status">Status</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'bugTrackerApp.Status.' + ticket.status }}">{{ ticket.status }}</span>
+                </dd>
+                <dt><span jhiTranslate="bugTrackerApp.ticket.type">Type</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'bugTrackerApp.Type.' + ticket.type }}">{{ ticket.type }}</span>
+                </dd>
+                <dt><span jhiTranslate="bugTrackerApp.ticket.priority">Priority</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'bugTrackerApp.Priority.' + ticket.priority }}">{{ ticket.priority }}</span>
+                </dd>
+                <dt><span jhiTranslate="bugTrackerApp.ticket.project">Project</span></dt>
+                <dd>
+                    <div *ngIf="ticket.project">
+                        <a [routerLink]="['/project', ticket.project?.id, 'view']">{{ ticket.project?.name }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="bugTrackerApp.ticket.assignedTo">Assigned To</span></dt>
+                <dd>
+                    {{ ticket.assignedTo?.login }}
+                </dd>
+                <dt><span jhiTranslate="bugTrackerApp.ticket.reportedBy">Reported By</span></dt>
+                <dd>
+                    {{ ticket.reportedBy?.login }}
+                </dd>
+                <dt><span jhiTranslate="bugTrackerApp.ticket.label">Label</span></dt>
+                <dd>
+                    <span *ngFor="let label of ticket.labels; let last = last">
+                        <a [routerLink]="['/label', label?.id, 'view']">{{ label.label }}</a>{{ last ? '' : ', ' }}
+                    </span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/ticket', ticket.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
